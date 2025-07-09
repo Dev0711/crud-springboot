@@ -1,6 +1,6 @@
 Spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/crud
+    url: jdbc:mysql://localhost:3306/crud?allowPublicKeyRetrieval=true&useSSL=false&autoreconnect=true&createDatabaseIfNotExist=true
     username: root
     password: root
   jpa:
