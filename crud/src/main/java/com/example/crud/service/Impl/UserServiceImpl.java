@@ -1,6 +1,7 @@
 package com.example.crud.service.Impl;
 
 import com.example.crud.dto.UserDTO;
+import com.example.crud.mapper.UserMapper;
 import com.example.crud.model.User;
 import com.example.crud.repository.UserRepository;
 import com.example.crud.service.UserService;
@@ -11,12 +12,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static java.util.Arrays.stream;
+
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Override
     public List<User> getAllUsers(){
         return userRepository.findAll();
+    }
+
+    public List<UserDTO> getAllUsers1(){
+        return userRepository.findAll()
+                .stream()
+                .map(UserMapper::mapToUserDTO)
+                .toList();
     }
     public User saveUser(User user){
         return userRepository.save(user);

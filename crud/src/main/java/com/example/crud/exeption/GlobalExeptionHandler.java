@@ -1,4 +1,6 @@
 package com.example.crud.exeption;
 
-public class GlobalExeptionHandler {
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+public class GlobalExeptionHandler extends ResponseEntityExceptionHandler {
 }
